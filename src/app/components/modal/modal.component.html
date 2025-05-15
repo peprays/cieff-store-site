@@ -1,0 +1,40 @@
+<div class="modal-fade" [class.hide]="isClosing" (click)="close()"></div>
+<div>
+  <!-- Fundo escuro -->
+  <div class="modal-fade"></div>
+
+  <!-- Conteúdo do modal -->
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>{{ data.titulo }}</h2>
+      <!-- Fechar só funciona se você injetar DialogRef (opcional) -->
+      <button class="close-modal" (click)="close()"><h1>X</h1></button>
+    </div>
+
+    <div class="modal-body">
+      <img class="img_modal" [src]="data.imagem" alt="Imagem do produto">
+      <p>{{ data.descricao }}</p>
+
+      <div class="botoes_modal">
+        <button class="btn_modal">P</button>
+        <button class="btn_modal">M</button>
+        <button class="btn_modal">G</button>
+        <button class="btn_modal">GG</button>
+      </div>
+
+      <div class="botoes_modal">
+        <button class="btn_cor1"></button>
+        <button class="btn_cor2"></button>
+      </div>
+
+      <a class="tamanhos" [href]="data.tabela" target="_blank">Tabela de tamanhos</a>
+
+      <div class="button_modal">
+        <a [href]="data.link">
+          <button>Adicionar ao carrinho</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

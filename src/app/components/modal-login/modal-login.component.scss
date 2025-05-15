@@ -1,0 +1,183 @@
+:host {
+  font-family: 'style', sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+.modal-fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000088;
+  z-index: 99;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.modal-container {
+  position: fixed;
+  background-color: #f5f5f5;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  height: 700px;
+  width: 90%;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+/* Esconde com animação */
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #313131;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.modal-header i {
+  width: 20px;
+  height: 20px;
+}
+
+/* Modal body */
+.modal-body p {
+  margin-bottom: 1rem;
+}
+
+
+/* Hiding modal and fade background */
+.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+
+
+.close-modal button{
+  background-color: #f5f5f5;
+}
+
+.close-modal h1{
+  font-family: 'style', sans-serif;
+  font-size: 20px;
+}
+
+.close-modal{
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.close-modal h1:hover{
+  transform: scale(1.03) translateZ(0);
+  text-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.38);
+}
+
+#imagemLogo img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10rem;
+
+}
+
+.form-login{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-body{
+    display: grid;
+    place-items: center;
+}
+
+#botaoEntrar{
+  margin-top: 2rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  background-color: #717174;
+  color: white;
+  font-family: 'style', sans-serif;
+  font-size: 1rem;
+  width: 60%;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.logar p{
+  text-align: center;
+  font-size: 1rem;
+}
+
+.e-mail{
+  margin-bottom: 1rem;
+}
+
+input {
+  margin-top: 5px;
+  padding: 10px;
+  width: 300px;
+  border-radius: 20px;
+  border: none;
+  font-size: 15px;
+  background-color:#b7b7b8;
+}
+
+input[type=text]{
+  color: #ffffff;
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+input[type=password]{
+  color: #ffffff;
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: none;
+  border: none; /* opcional: cuidado se quiser manter alguma borda */
+}
+
+.form-login h3{
+  margin-left: 1rem;
+}
+
+.formasLogin {
+  display: flex;
+  justify-content: center;  /* Centraliza horizontalmente */
+  align-items: center;      /* Centraliza verticalmente (se quiser) */
+  gap: 70px;                /* Espaço entre os ícones */
+  margin-top: 35px;         /* Espaço externo opcional */
+}
+
+.formasLogin img{
+  margin-left: auto;
+  margin-right: auto;
+  width: 35px;
+  cursor: pointer;
+}
+

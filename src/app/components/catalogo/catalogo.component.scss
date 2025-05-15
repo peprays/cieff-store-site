@@ -1,0 +1,258 @@
+:host {
+  font-family: 'style', sans-serif;
+}
+
+section{
+    padding-top: 50px;
+    width: 100%;
+    height: 400px;
+    background: rgb(56,56,56);
+    background: linear-gradient(180deg, rgba(185,185,185,1) #b9b9b9, rgba(255,255,255,1) 100%);
+}
+
+section h1{
+    text-align: center;
+    font-family: 'style', sans-serif;
+    color: white;
+    font-size: 35px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.catalogo{
+    margin: auto;
+    margin-top: 30px;
+    width: 95%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.produto{
+    width: 250px;
+    height: 250px;
+    margin-bottom: 40px;
+}
+
+.produto img{
+    border-radius: 10px;
+    border: 0.2px solid rgba(0, 0, 0, 0.363);
+
+
+}
+
+.produto p{
+    font-family: style, sans-serif;
+    text-align: left;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.438);
+    margin-bottom: 6px;
+}
+
+.produto span{
+    font-family: style, sans-serif;
+    text-align: left;
+    font-size: 15px;
+    color: #fff;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.438);
+}
+
+.produto button{
+    font-family: style, sans-serif;
+    text-decoration: none;
+    font-size: 15px;
+    background-color: #66666680;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+
+}
+
+/*.produto a:hover{
+    background-color: #fafafa80;
+    color: black;
+    transition: 0.3s;
+
+
+}
+
+.produto{
+    transition: all 0.8s;
+}
+
+.produto:hover{
+    transform: scale(1.10);
+    transition: all 0.8s;
+}
+
+.produto:hover{
+    transform: scale(1.15) translateZ(0);
+
+}
+
+.catalogo:hover > .produto:not(:hover) {
+    transform: scale(0.9);
+}
+
+.catalogo:hover > .produto:not(:hover) {
+    filter: brightness(0.5) saturate(00) contrast(1.2) blur(3px);
+}
+
+button:hover {
+    opacity: 1;
+  }*/
+
+  #fade, #fade2, #fade3, #fade4, #fade5, #fade6 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+  }
+
+  #modal, #modal2, #modal3, #modal4, #modal5, #modal6 {
+    font-family: style, sans-serif;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 65%;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+  }
+
+
+  .img_modal {
+    width: 250px;
+    height: 300px;
+    float: left;
+    margin-right: 25px;
+
+  }
+
+  .tamanhos {
+    text-decoration: none;
+  }
+
+  .botoes_modal {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+  }
+
+  .btn_modal {
+    width: 40px;
+    height: 40px;
+    margin-top: 7%;
+    margin-right: 2.5%;
+    border-radius: 100%;
+    float: right;
+    transition: .3s;
+  }
+
+  .btn_modal:hover {
+    background-color: #31313159;
+    transition: .3s;
+  }
+
+  .btn_cor1 {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 251, 251);
+    border: 3px solid #b9b9b9;
+    margin-right: 2.5%;
+    border-radius: 100%;
+    float: right;
+  }
+
+
+  .btn_cor2 {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(12, 12, 12);
+    border: 3px solid #b9b9b9;
+    margin-right: 2.5%;
+    border-radius: 100%;
+    float: right;
+  }
+
+
+
+  #fade, #modal, #modal2, #fade2, #modal3, #fade3, #modal3, #fade4, #modal4, #fade5, #modal5, #fade6, #modal6 {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal-header i  {
+    width: 20px;
+    height: 20px;
+
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #313131;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .modal-body p {
+    margin-bottom: 1rem;
+  }
+
+  .button_modal {
+    width: 20%;
+    float: right;
+  }
+
+  .button_modal button {
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 15px;
+    transition: all .4s;
+}
+
+ .button_modal button:hover {
+    background-color: rgb(53, 53, 53);
+    color: #b9b9b9;
+    transition: ease-out all .4s;
+ }
+
+    #modal.hide, #fade.hide, #modal2.hide, #fade2.hide, #modal3.hide, #fade3.hide, #modal4.hide, #fade4.hide, #modal5.hide, #fade5.hide, #modal6.hide, #fade6.hide  {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #modal.hide, #modal2.hide, #modal3.hide, #modal4.hide, #modal5.hide, #modal6.hide {
+        top: 0;
+    }
+
+    #hover_tshirt{
+        opacity: 0;
+        transition: all 0.2s;
+    }
+
+    #hover_tshirt:hover{
+        opacity: 100;
+        transition: all 0.2s;
+    }
+
+    .produto:hover{
+      cursor: pointer;
+      transform: scale(1.01) translateZ(0);
+    }
+
+    .produto img:hover{
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.38);
+    }

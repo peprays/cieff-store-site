@@ -1,0 +1,46 @@
+
+<div class="modal-fade" [class.hide]="isClosing" (click)="close()"></div>
+<div class="modal-content">
+  <!-- Fundo escuro -->
+  <div class="modal-fade"></div>
+
+  <!-- Conteúdo do modal -->
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>Login</h2>
+      <!-- Fechar só funciona se você injetar DialogRef (opcional) -->
+      <button class="close-modal" (click)="close()"><h1>X</h1></button>
+    </div>
+
+    <div class="modal-body">
+        <div id="imagemLogo">
+          <img src="/assets/imagens/logo_preta.png" alt="">
+        </div>
+        <div class="form-login">
+          <form>
+            <div class="e-mail">
+            <h3>E-mail</h3>
+              <input type="text" id="e-mailInput">
+            </div>
+            <h3>Senha</h3>
+            <input type="password" id="senha"> <br>
+            <div class="logar">
+              <button type="button" id="botaoEntrar">Entrar</button>
+            </div>
+            <div class="formasLogin">
+                <a>
+                  <img src="/assets/icons/google_logo.png" id="googleImg">
+                </a>
+                <a>
+                  <img src="/assets/icons/insta_logo.png" id="instaImg">
+                </a>
+                <a>
+                  <img src="/assets/icons/tiktok_logo.png" id="tiktokImg">
+                </a>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+
