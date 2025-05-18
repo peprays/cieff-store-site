@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.form-container {
+  background-color: #fff;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  text-align: center;
+  color: #999;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.form-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-section {
+  width: 48%;
+}
+
+.form-section-title {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.divider {
+  width: 1px;
+  background-color: #ddd;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px 0;
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  font-size: 16px;
+}
+
+.phone-input, .date-input {
+  display: flex;
+}
+
+.phone-input span {
+  align-self: center;
+  margin-right: 5px;
+}
+
+.date-input input {
+  text-align: center;
+  width: 40px;
+  margin: 0 5px;
+}
+
+.date-input span {
+  align-self: center;
+}
+
+.btn-save {
+  display: block;
+  width: 200px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 30px auto 0;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-save:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
+}
+
+.message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.success {
+  color: #28a745;
+  animation: fadeIn 0.5s;
+}
+
+.error {
+  color: #dc3545;
+}
+
+.input-error {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#dataSaved {
+  animation: slideDown 0.5s;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.highlight {
+  animation: pulse 1s;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}

@@ -6,6 +6,20 @@ a{
   text-decoration: none;
 }
 
+.input-error {
+  border: 1px solid red;
+  background-color: #ffe5e5;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+  font-family: style, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .modal-fade {
   position: fixed;

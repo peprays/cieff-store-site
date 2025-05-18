@@ -1,0 +1,88 @@
+<div id="app-root">
+  <div class="form-container">
+    <h1 class="title">Dados pessoais</h1>
+    <form id="dadosPessoaisForm">
+      <div class="form-content">
+        <!-- Seção de Informações Pessoais -->
+        <div class="form-section">
+          <h2 class="form-section-title">Informações pessoais</h2>
+
+          <div class="input-group">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" required>
+            <div class="input-error" id="erro-nome"></div>
+          </div>
+
+          <div class="input-group">
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" name="cpf" maxlength="14" required>
+            <div class="input-error" id="erro-cpf"></div>
+          </div>
+
+          <div class="input-group">
+            <label for="telefone">Telefone (celular)</label>
+            <div class="phone-input">
+              <span>(</span>
+              <input type="text" id="ddd" name="ddd" style="width: 30px; text-align: center;" maxlength="2" required>
+              <span>)</span>
+              <input type="text" id="telefone" name="telefone" style="width: calc(100% - 50px); margin-left: 5px;" maxlength="10" required>
+            </div>
+            <div class="input-error" id="erro-telefone"></div>
+          </div>
+
+          <div class="input-group">
+            <label for="data">Data de Nascimento</label>
+            <div class="date-input">
+              <input type="text" id="dia" name="dia" maxlength="2" required>
+              <span>/</span>
+              <input type="text" id="mes" name="mes" maxlength="2" required>
+              <span>/</span>
+              <input type="text" id="ano" name="ano" maxlength="4" style="width: 60px;" required>
+            </div>
+            <div class="input-error" id="erro-data"></div>
+          </div>
+        </div>
+
+        <!-- Divisor -->
+        <div class="divider"></div>
+
+        <!-- Seção de Endereço -->
+        <div class="form-section">
+          <h2 class="form-section-title">Informações de endereço</h2>
+
+          <div class="input-group">
+            <label for="cep">CEP</label>
+            <input type="text" id="cep" name="cep" maxlength="9" required>
+            <div class="input-error" id="erro-cep"></div>
+          </div>
+
+          <div class="input-group">
+            <label for="rua">Rua</label>
+            <input type="text" id="rua" name="rua" required>
+            <div class="input-error" id="erro-rua"></div>
+          </div>
+
+          <div class="input-group">
+            <label for="numero">Número</label>
+            <input type="text" id="numero" name="numero" required>
+            <div class="input-error" id="erro-numero"></div>
+          </div>
+
+          <div class="input-group">
+            <label for="complemento">Complemento</label>
+            <input type="text" id="complemento" name="complemento">
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-save">Salvar</button>
+      <div class="message" id="mensagem"></div>
+
+      <!-- Mensagem de feedback quando os dados forem salvos -->
+      <div id="dataSaved" style="display: none; margin-top: 30px;">
+        <h3 style="text-align: center; margin-bottom: 15px; color: #333;">Dados Salvos</h3>
+        <div id="savedDataDisplay" style="background: #f9f9f9; border: 1px solid #ddd; border-radius: 10px; padding: 15px; max-height: 200px; overflow-y: auto;"></div>
+      </div>
+    </form>
+  </div>
+</div>

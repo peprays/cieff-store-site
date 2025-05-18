@@ -13,33 +13,36 @@
     </div>
 
     <div class="modal-body">
-        <div id="imagemLogo">
-          <img src="/assets/imagens/logo_preta.png" alt="">
-        </div>
-        <div class="form-login">
-          <form>
-            <div class="e-mail">
+      <div id="imagemLogo">
+        <img src="/assets/imagens/logo_preta.png" alt="">
+      </div>
+      <div class="form-login">
+        <form (ngSubmit)="login()">
+          <div class="e-mail">
             <h3>E-mail</h3>
-              <input type="text" id="e-mailInput">
-            </div>
-            <h3>Senha</h3>
-            <input type="password" id="senha"> <br>
-            <div class="logar">
-              <button type="button" id="botaoEntrar">Entrar</button>
-            </div>
-            <div class="formasLogin">
-                <a>
-                  <img src="/assets/icons/google_logo.png" id="googleImg">
-                </a>
-                <a>
-                  <img src="/assets/icons/insta_logo.png" id="instaImg">
-                </a>
-                <a>
-                  <img src="/assets/icons/tiktok_logo.png" id="tiktokImg">
-                </a>
-            </div>
-          </form>
+            <input type="email" id="e-mailInput" [(ngModel)]="email" name="email">
+          </div>
+          <h3>Senha</h3>
+          <input type="password" id="senha" [(ngModel)]="password" name="password" [ngClass]="{ 'input-error': passwordInvalid }"> <br>
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+          <div class="logar">
+            <button type="submit" id="botaoEntrar">Entrar</button>
+          </div>
+        </form>
+        <div class="formasLogin">
+          <a>
+            <img src="/assets/icons/google_logo.png" id="googleImg">
+          </a>
+          <a>
+            <img src="/assets/icons/insta_logo.png" id="instaImg">
+          </a>
+          <a>
+            <img src="/assets/icons/tiktok_logo.png" id="tiktokImg">
+          </a>
         </div>
+      </div>
     </div>
   </div>
 </div>

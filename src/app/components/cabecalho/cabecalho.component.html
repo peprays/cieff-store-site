@@ -1,33 +1,40 @@
 <div id="background">
+  <header>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#catalogo_link">Catálogo</a>
+      <a href="#novidades_link">Novidades</a>
+    </div>
 
-    <header>
+    <a href="#">
+      <img class="logo" src="/assets/imagens/logo_png.png" alt="" width="100%" height="100%">
+    </a>
 
-        <div class="menu">
-            <a href="#">Home</a>
-            <a href="#catalogo_link">Catálogo</a>
-            <a href="#novidades_link">Novidades</a>
-        </div>
-        <a href="#">
-            <img class="logo" src="/assets/imagens/logo_png.png" alt="" width="100%" height="100%">
+    <div class="menu">
+      <a href="#link_sobre">Sobre Nós</a>
+      <input type="text" placeholder=" Pesquisar">
+
+      <a routerLink="/carrinho">
+        <img class="icone" src="/assets/imagens/carrin.png" alt="">
+      </a>
+
+      <!-- Se NÃO estiver logado, mostra o ícone de login -->
+      <ng-container *ngIf="!authService.isLoggedIn()">
+        <a (click)="openModalLogin()">
+          <img class="icone" src="/assets/imagens/perfil.png" alt="">
         </a>
+      </ng-container>
 
-
-        <div class="menu">
-            <a href="#link_sobre">Sobre Nós</a>
-            <input type="text" placeholder=" Pesquisar">
-
-            <a routerLink="/carrinho">
-                <img class="icone" src="/assets/imagens/carrin.png" alt="">
-            </a>
-
-            <a (click)="openModalLogin()">
-              <img class="icone" src="/assets/imagens/perfil.png" alt="">
-            </a>
-
+      <!-- Se estiver logado, mostra o menu do usuário -->
+      <ng-container *ngIf="authService.isLoggedIn()">
+        <div class="user-menu-container" (click)="toggleMenu()">
+          <img class="icone" src="/assets/imagens/perfil.png" alt="">
+          <div class="user-menu" *ngIf="isMenuOpen">
+            <a href="#">Meus dados</a>
+            <a (click)="logout()">Sair</a>
+          </div>
         </div>
-
-
-
-    </header>
-
+      </ng-container>
+    </div>
+  </header>
 </div>

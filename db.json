@@ -1,0 +1,19 @@
+gi{
+  "users": [
+    {
+      "id": "1",
+      "email": "joao@email.com",
+      "password": "123456"
+    },
+    {
+      "id": "c347",
+      "email": "pedroh2295@outlook.com.br",
+      "password": "1234567"
+    },
+    {
+      "id": "a285",
+      "email": "pmatoscosta6@gmail.com",
+      "password": "123456"
+    }
+  ]
+}
