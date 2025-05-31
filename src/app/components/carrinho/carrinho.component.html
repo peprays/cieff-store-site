@@ -26,7 +26,7 @@
             <th>Preço</th>
             <th>Quantidade</th>
             <th>Total</th>
-            <th>-</th>
+            <th></th>
           </tr>
           </thead>
           <tbody>
@@ -48,18 +48,18 @@
             <td>
               <div class="qty">
                 <button (click)="diminuirQuantidade(item)">
-                  <i class="bx bx-minus"></i>
+                  <i class="bx bx-minus">-</i>
                 </button>
                 <span>{{ item.quantidade }}</span>
                 <button (click)="aumentarQuantidade(item)">
-                  <i class="bx bx-plus"></i>
+                  <i class="bx bx-plus">+</i>
                 </button>
               </div>
             </td>
             <td>R$ {{ (item.preco * item.quantidade).toFixed(2).replace('.', ',') }}</td>
             <td>
               <button class="remove" (click)="removerItem(item)">
-                <i class="bx bx-x"></i>
+                <i class="bx bx-x"><img src="/assets/imagens/lixeira.png" alt=""></i>
               </button>
             </td>
           </tr>

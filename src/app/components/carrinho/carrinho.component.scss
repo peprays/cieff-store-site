@@ -2,7 +2,6 @@
   font-family: 'style', sans-serif;
 }
 
-
 header {
   background: #111;
   color: white;
@@ -18,9 +17,14 @@ header {
   height: 140px;
   cursor: pointer;
   transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-2px);
+    transition: all 0.3s;
+  }
 }
 
-.logo:hover, #voltar:hover {
+#voltar:hover {
   transform: translateY(-2px);
   transition: all 0.3s;
 }
@@ -28,6 +32,7 @@ header {
 main {
   background: #fff;
   padding: 0 30px 30px;
+  min-height: calc(100vh - 140px); // Garante altura mínima para centralização
 }
 
 .page-title {
@@ -36,23 +41,80 @@ main {
   text-align: center;
 }
 
+// CORREÇÃO PRINCIPAL: Layout flex para manter tabela e resumo lado a lado
 .content {
+  // Div que contém os itens do carrinho (quando não vazio)
+  > div {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+  }
+
+  section {
+    flex: 1;
+    background: #fff;
+    min-width: 0; // Permite que a tabela encolha se necessário
+  }
+
+  aside {
+    min-width: 300px;
+    max-width: 350px;
+    flex-shrink: 0; // Impede que o aside encolha
+  }
+}
+
+// Estilos para carrinho vazio - Centralizado vertical e horizontalmente
+.carrinho-vazio {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60vh;
+  padding: 60px 20px;
+
+  h3 {
+    color: #666;
+    margin-bottom: 15px;
+    font-family: 'style', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  p {
+    color: #888;
+    margin-bottom: 25px;
+    font-family: 'style', sans-serif;
+    font-size: 18px;
+    max-width: 500px;
+    line-height: 1.6;
+  }
 }
 
-.content section {
-  flex: 1;
-  background: #fff;
-}
+.btn-continuar {
+  padding: 15px 30px;
+  background-color: #28a745;
+  color: white;
+  border: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'style', sans-serif;
+  transition: background 0.3s ease;
+  border-radius: 6px;
+  font-weight: 600;
 
-.content aside {
-  min-width: 250px;
-  margin-left: 30px;
+  &:hover {
+    background: #3bc55b;
+  }
 }
 
 .produto {
   width: 100px;
   height: 100px;
+  object-fit: cover; // Mantém proporção da imagem
+  border-radius: 6px;
 }
 
 button {
@@ -60,54 +122,84 @@ button {
   font-family: 'Style', sans-serif;
 }
 
+// TABELA - Estrutura principal dos produtos
 table {
   width: 100%;
   border-collapse: collapse;
-}
 
-table thead tr {
-  border-bottom: 3px solid #eee;
-}
+  thead {
+    tr {
+      border-bottom: 3px solid #eee;
 
-table thead tr th {
-  text-align: left;
-  padding-bottom: 10px;
-  text-transform: uppercase;
-  color: #666;
-}
+      th {
+        text-align: left;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+        color: #666;
+        font-weight: 600;
 
-table tbody tr {
-  border-bottom: 3px solid #eee;
-}
+        // Definindo larguras específicas para as colunas
+        &:first-child { width: 50%; } // PRODUTO (maior espaço)
+        &:nth-child(2) { width: 15%; } // PREÇO
+        &:nth-child(3) { width: 15%; } // QUANTIDADE
+        &:nth-child(4) { width: 15%; } // TOTAL
+        &:nth-child(5) { width: 5%; }  // Botão remover
+      }
+    }
+  }
 
-table tbody tr:last-child {
-  border: 0;
-}
+  tbody {
+    tr {
+      border-bottom: 3px solid #eee;
 
-table tbody tr td {
-  padding: 30px 0;
+      &:last-child {
+        border: 0;
+      }
+
+      td {
+        padding: 30px 0;
+        vertical-align: middle;
+      }
+    }
+  }
 }
 
 .product {
   display: flex;
   align-items: center;
-}
+  gap: 20px;
 
-.product img {
-  border-radius: 6px;
-}
+  img {
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
 
-.product .info {
-  margin-left: 20px;
-}
+  .info {
+    flex: 1;
+    min-width: 0; // Permite quebra de texto se necessário
 
-.product .info .name {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
+    .name {
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
 
-.product .info .category {
-  color: #666;
+    .category {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .details {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+      font-family: 'style', sans-serif;
+
+      span {
+        font-weight: 500;
+      }
+    }
+  }
 }
 
 .qty {
@@ -120,24 +212,26 @@ table tbody tr td {
   overflow: hidden;
   height: 30px;
   padding: 0;
-}
 
-.qty span {
-  margin: 0 10px;
-}
+  span {
+    margin: 0 10px;
+    font-weight: 600;
+  }
 
-.qty button {
-  display: flex;
-  align-items: center;
-  background: transparent;
-  border: 0;
-  padding: 0 10px;
-  font-size: 20px;
-  height: 100%;
-}
+  button {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 0;
+    padding: 0 10px;
+    font-size: 20px;
+    height: 100%;
+    transition: background 0.2s;
 
-.qty button:hover {
-  background: #ddd;
+    &:hover {
+      background: #ddd;
+    }
+  }
 }
 
 .remove {
@@ -150,147 +244,220 @@ table tbody tr td {
   align-items: center;
   justify-content: center;
   font-size: 20px;
-}
-
-.remove:hover {
-  background: #ddd;
-}
-
-aside .box {
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  background: #eee;
-  color: #222;
-}
-
-aside .box header {
-  padding: 15px 20px;
-  font-size: 18px;
-  border-bottom: 1px solid #ccc;
-}
-
-aside .box .info {
-  padding: 20px;
-  font-size: 16px;
-}
-
-aside .box .info > div {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  color: #555;
-}
-
-aside .box .info > div:last-child {
-  margin: 0;
-}
-
-aside .box .info button {
-  color: #28a745;
-  background: transparent;
-  border: 0;
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-}
-
-aside .box footer {
-  padding: 15px 20px;
-  background: #ddd;
-  font-size: 18px;
-  display: flex;
-  justify-content: space-between;
-}
-
-aside > button {
-  border: 0;
-  padding: 15px 0;
-  color: white;
-  background: #28a745;
-  display: block;
-  width: 100%;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 16px;
-}
-
-aside > button:hover {
-  background: #3bc55b;
-}
-
-// Estilos para carrinho vazio - mantendo consistência
-.carrinho-vazio {
-  text-align: center;
-  padding: 60px 20px;
-
-  h3 {
-    color: #666;
-    margin-bottom: 15px;
-    font-family: 'style', sans-serif;
-  }
-
-  p {
-    color: #888;
-    margin-bottom: 25px;
-    font-family: 'style', sans-serif;
-  }
-}
-
-.btn-continuar {
-  padding: 15px 0;
-  background-color: #28a745;
-  color: white;
-  border: 0;
-  width: 200px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 16px;
-  cursor: pointer;
-  font-family: 'style', sans-serif;
-  transition: background 0.3s ease;
+  transition: background 0.2s;
 
   &:hover {
-    background: #3bc55b;
+    background: #ddd;
   }
 }
 
-// Estilos para detalhes do produto - integrado com design existente
-.product .info .details {
-  font-size: 12px;
-  color: #666;
-  margin-top: 5px;
-  font-family: 'style', sans-serif;
-
-  span {
-    font-weight: 500;
-  }
+.remove img{
+  width: 65%;
 }
 
-// Removendo estilos que já existem no CSS original
-// Mantendo apenas ajustes específicos para as novas funcionalidades
+// ASIDE - Resumo da compra
+aside {
+  .box {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    background: #eee;
+    color: #222;
+    border-radius: 8px;
+    overflow: hidden;
+
+    header {
+      padding: 15px 20px;
+      font-size: 18px;
+      border-bottom: 1px solid #ccc;
+      background: #f8f8f8;
+      font-weight: 600;
+      color: black;
+    }
+
+    .info {
+      padding: 20px;
+      font-size: 16px;
+
+      > div {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        color: #555;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+
+      button {
+        color: #28a745;
+        background: transparent;
+        border: 0;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        text-decoration: underline;
+
+        &:hover {
+          color: #1e7e34;
+        }
+      }
+    }
+
+    footer {
+      padding: 15px 20px;
+      background: #ddd;
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+    }
+  }
+
+  > button {
+    border: 0;
+    padding: 15px 0;
+    color: white;
+    background: #28a745;
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: #3bc55b;
+    }
+  }
+}
 
 // Responsividade
+@media (max-width: 1024px) {
+  .content > div {
+    aside {
+      min-width: 280px;
+    }
+  }
+}
+
 @media (max-width: 768px) {
-  .content {
+  .content > div {
     flex-direction: column;
+    gap: 20px;
+
+    aside {
+      min-width: auto;
+      max-width: none;
+    }
   }
 
   table {
     font-size: 14px;
 
-    .product {
-      flex-direction: column;
-      align-items: flex-start;
+    thead th {
+      padding: 8px 4px;
+      font-size: 12px;
+    }
 
-      .produto {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
+    tbody td {
+      padding: 15px 4px;
+    }
+  }
+
+  .product {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    .produto {
+      width: 60px;
+      height: 60px;
+    }
+
+    .info {
+      .name {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      .category {
+        font-size: 12px;
       }
     }
   }
 
   .carrinho-vazio {
+    min-height: 50vh;
     padding: 40px 15px;
+
+    h3 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  // Ajustes para tabela em mobile
+  .qty {
+    min-width: 50px;
+    height: 25px;
+
+    span {
+      margin: 0 5px;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 0 8px;
+      font-size: 16px;
+    }
+  }
+
+  .remove {
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 0 15px 15px;
+    min-height: calc(100vh - 100px);
+  }
+
+  .page-title {
+    font-size: 28px;
+    padding: 30px 0;
+  }
+
+  header {
+    padding-inline: 20px;
+    font-size: 20px;
+  }
+
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .carrinho-vazio {
+    min-height: 45vh;
+    padding: 30px 10px;
+
+    h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
   }
 }
