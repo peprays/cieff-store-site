@@ -30,7 +30,7 @@
         <div class="user-menu-container" (click)="toggleMenu()">
           <img class="icone" src="/assets/imagens/perfil.png" alt="">
           <div class="user-menu" *ngIf="isMenuOpen">
-            <a href="#">Meus dados</a>
+            <a routerLink="/dados">Meus dados</a>
             <a (click)="logout()">Sair</a>
           </div>
         </div>

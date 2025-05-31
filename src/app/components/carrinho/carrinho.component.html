@@ -1,8 +1,8 @@
 <header>
-  <a id="voltar" href="/home">
+  <a id="voltar" routerLink="/home">
     <i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i>
   </a>
-  <a href="/">
+  <a routerLink="/">
     <img class="logo" src="/assets/imagens/logo_png.png" alt="">
   </a>
   <span></span>
@@ -10,112 +10,95 @@
 <main>
   <div class="page-title">Seu Carrinho</div>
   <div class="content">
-    <section>
-      <table>
-        <thead>
-        <tr>
-          <th>Produto</th>
-          <th>Preço</th>
-          <th>Quantidade</th>
-          <th>Total</th>
-          <th>-</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>
-            <div class="product">
-              <img class="produto" src="/assets/imagens/calcacargo.png" alt="" />
-              <div class="info">
-                <div class="name">Calça Cargo</div>
-                <div class="category">Calças</div>
+    <!-- Mensagem quando carrinho está vazio -->
+    <div *ngIf="itens.length === 0" class="carrinho-vazio">
+      <h3>Seu carrinho está vazio</h3>
+      <p>Adicione produtos ao seu carrinho para vê-los aqui.</p>
+    </div>
+
+    <!-- Conteúdo quando há itens no carrinho -->
+    <div *ngIf="itens.length > 0">
+      <section>
+        <table>
+          <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+            <th>-</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of itens; trackBy: trackByItem">
+            <td>
+              <div class="product">
+                <img class="produto" [src]="item.imagem" [alt]="item.nome" />
+                <div class="info">
+                  <div class="name">{{ item.nome }}</div>
+                  <div class="category">{{ item.categoria }}</div>
+                  <div class="details">
+                    <span *ngIf="item.tamanho">Tamanho: {{ item.tamanho }}</span>
+                    <span *ngIf="item.cor"> | Cor: {{ item.cor }}</span>
+                  </div>
+                </div>
               </div>
-            </div>
-          </td>
-          <td>R$ <span id="preço1"></span></td>
-          <td>
-            <div class="qty">
-              <button onclick="diminuirQuant1()"><i class="bx bx-minus"></i></button>
-              <span id="quantidade1"></span>
-              <button onclick="aumentarQuant1()"><i class="bx bx-plus"></i></button>
-            </div>
-          </td>
-          <td>R$ <span id="total1"></span>,00</td>
-          <td>
-            <button class="remove"><i class="bx bx-x"></i></button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="product">
-              <img class="produto" src="/assets/imagens/camiseta_roxa_1.png" alt="" />
-              <div class="info">
-                <div class="name">Camiseta HSWR</div>
-                <div class="category">Camisetas</div>
+            </td>
+            <td>R$ {{ item.preco.toFixed(2).replace('.', ',') }}</td>
+            <td>
+              <div class="qty">
+                <button (click)="diminuirQuantidade(item)">
+                  <i class="bx bx-minus"></i>
+                </button>
+                <span>{{ item.quantidade }}</span>
+                <button (click)="aumentarQuantidade(item)">
+                  <i class="bx bx-plus"></i>
+                </button>
               </div>
+            </td>
+            <td>R$ {{ (item.preco * item.quantidade).toFixed(2).replace('.', ',') }}</td>
+            <td>
+              <button class="remove" (click)="removerItem(item)">
+                <i class="bx bx-x"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <aside>
+        <div class="box">
+          <header>Resumo da compra</header>
+          <div class="info">
+            <div>
+              <span>Sub-total</span>
+              <span>R$ {{ subTotal.toFixed(2).replace('.', ',') }}</span>
             </div>
-          </td>
-          <td>R$ <span id ="preço2"></span></td>
-          <td>
-            <div class="qty">
-              <button onclick="diminuirQuant2()"><i class="bx bx-minus"></i></button>
-              <span id="quantidade2"></span>
-              <button onclick="aumentarQuant2()"><i class="bx bx-plus"></i></button>
+            <div>
+              <span>Frete</span>
+              <span>Gratuito</span>
             </div>
-          </td>
-          <td>R$ <span id="total2"></span>,00</td>
-          <td>
-            <button class="remove"><i class="bx bx-x"></i></button>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="product">
-              <img class="produto" src="/assets/imagens/camiseta_white.png" alt="" />
-              <div class="info">
-                <div class="name">Camiseta HRWS</div>
-                <div class="category">Camisetas</div>
-              </div>
+            <div>
+              <button>
+                Adicionar cupom de desconto
+                <i class="bx bx-right-arrow-alt"></i>
+              </button>
             </div>
-          </td>
-          <td>R$ 100,00</td>
-          <td>
-            <div class="qty">
-              <button onclick="diminuirQuant3()"><i class="bx bx-minus"></i></button>
-              <span id="quantidade3"></span>
-              <button onclick="aumentarQuant3()"><i class="bx bx-plus"></i></button>
-            </div>
-          </td>
-          <td>R$ <span id="total3"></span>,00</td>
-          <td>
-            <button class="remove"><i class="bx bx-x"></i></button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </section>
-    <aside>
-      <div class="box">
-        <header>Resumo da compra</header>
-        <div class="info">
-          <div><span>Sub-total</span><span>R$<span id="subTotal"></span>,00</span></div>
-        <div><span>Frete</span><span>Gratuito</span></div>
-        <div>
-          <button>
-            Adicionar cupom de desconto
-            <i class="bx bx-right-arrow-alt"></i>
-          </button>
+          </div>
+          <footer>
+            <span>Total</span>
+            <span>R$ {{ valorFinal.toFixed(2).replace('.', ',') }}</span>
+          </footer>
         </div>
-      </div>
-      <footer>
-        <span>Total</span>
-        <span>R$ <span id="valorFinal"></span>,00</span>
-      </footer>
-  </div>
-  <button>Finalizar Compra</button>
-  </aside>
+        <button (click)="finalizarCompra()" class="btn-finalizar">
+          Finalizar Compra
+        </button>
+      </aside>
+    </div>
   </div>
 </main>
+
 <div vw class="enabled">
   <div vw-access-button class="active"></div>
   <div vw-plugin-wrapper>

@@ -217,3 +217,80 @@ aside > button {
 aside > button:hover {
   background: #3bc55b;
 }
+
+// Estilos para carrinho vazio - mantendo consistência
+.carrinho-vazio {
+  text-align: center;
+  padding: 60px 20px;
+
+  h3 {
+    color: #666;
+    margin-bottom: 15px;
+    font-family: 'style', sans-serif;
+  }
+
+  p {
+    color: #888;
+    margin-bottom: 25px;
+    font-family: 'style', sans-serif;
+  }
+}
+
+.btn-continuar {
+  padding: 15px 0;
+  background-color: #28a745;
+  color: white;
+  border: 0;
+  width: 200px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'style', sans-serif;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #3bc55b;
+  }
+}
+
+// Estilos para detalhes do produto - integrado com design existente
+.product .info .details {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+  font-family: 'style', sans-serif;
+
+  span {
+    font-weight: 500;
+  }
+}
+
+// Removendo estilos que já existem no CSS original
+// Mantendo apenas ajustes específicos para as novas funcionalidades
+
+// Responsividade
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  table {
+    font-size: 14px;
+
+    .product {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .produto {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .carrinho-vazio {
+    padding: 40px 15px;
+  }
+}

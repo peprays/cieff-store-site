@@ -48,7 +48,13 @@ export class ModalLoginComponent {
           console.log('Login bem-sucedido:', user);
           this.authService.setUser(user); // Armazena usuário logado
           this.close();
-          this.router.navigate(['/']); // Redireciona para a home
+
+          // ✅ Verifica se o ID é "ff33" (admin)
+          if (user.id === 'ff33') {
+            this.router.navigate(['/carrinho']); // Redireciona para dashboard
+          } else {
+            this.router.navigate(['/']); // Redireciona para home
+          }
         },
         error: err => {
           console.error('Erro no login:', err);
@@ -63,10 +69,5 @@ export class ModalLoginComponent {
     } else {
       this.errorMessage = 'Preencha todos os campos.';
     }
-    next: (user: any) => {
-      this.authService.setUser(user);
-      this.close();
-    }
-
   }
 }

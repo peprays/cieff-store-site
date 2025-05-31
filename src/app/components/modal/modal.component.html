@@ -6,35 +6,60 @@
   <!-- Conteúdo do modal -->
   <div class="modal-container">
     <div class="modal-header">
-      <h2>{{ data.titulo }}</h2>
+      <h2>{{ data?.titulo }}</h2>
       <!-- Fechar só funciona se você injetar DialogRef (opcional) -->
       <button class="close-modal" (click)="close()"><h1>X</h1></button>
     </div>
 
     <div class="modal-body">
-      <img class="img_modal" [src]="data.imagem" alt="Imagem do produto">
-      <p>{{ data.descricao }}</p>
+      <img class="img_modal" [src]="data?.imagem" alt="Imagem do produto" />
+      <p>{{ data?.descricao }}</p>
 
-      <div class="botoes_modal">
-        <button class="btn_modal">P</button>
-        <button class="btn_modal">M</button>
-        <button class="btn_modal">G</button>
-        <button class="btn_modal">GG</button>
+      <!-- Seleção de Tamanho -->
+      <div class="selection-section">
+        <h4>Tamanho:</h4>
+        <div class="botoes_modal">
+          <button
+            class="btn_modal"
+            [class.selected]="tamanhoSelecionado === 'P'"
+            (click)="selecionarTamanho('P')">
+            P
+          </button>
+          <button
+            class="btn_modal"
+            [class.selected]="tamanhoSelecionado === 'M'"
+            (click)="selecionarTamanho('M')">
+            M
+          </button>
+          <button
+            class="btn_modal"
+            [class.selected]="tamanhoSelecionado === 'G'"
+            (click)="selecionarTamanho('G')">
+            G
+          </button>
+          <button
+            class="btn_modal"
+            [class.selected]="tamanhoSelecionado === 'GG'"
+            (click)="selecionarTamanho('GG')">
+            GG
+          </button>
+        </div>
       </div>
 
-      <div class="botoes_modal">
-        <button class="btn_cor1"></button>
-        <button class="btn_cor2"></button>
-      </div>
+      <a class="tamanhos" [href]="data?.tabela" target="_blank">Tabela de tamanhos</a>
 
-      <a class="tamanhos" [href]="data.tabela" target="_blank">Tabela de tamanhos</a>
+      <!-- Informações Selecionadas -->
+      <div class="selecoes-info" *ngIf="tamanhoSelecionado || corSelecionada">
+        <p><strong>Selecionado:</strong></p>
+        <p *ngIf="tamanhoSelecionado">Tamanho: {{ tamanhoSelecionado }}</p>
+        <p *ngIf="corSelecionada">Cor: {{ corSelecionada }}</p>
+      </div>
 
       <div class="button_modal">
-        <a [href]="data.link">
-          <button>Adicionar ao carrinho</button>
-        </a>
+        <button (click)="adicionarAoCarrinho()" class="btn-adicionar-carrinho">
+          Adicionar ao carrinho
+        </button>
       </div>
     </div>
   </div>
 </div>
-

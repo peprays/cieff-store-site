@@ -1,4 +1,4 @@
-gi{
+{
   "users": [
     {
       "id": "1",
@@ -6,14 +6,112 @@ gi{
       "password": "123456"
     },
     {
-      "id": "c347",
+      "id": "e1a4",
       "email": "pedroh2295@outlook.com.br",
       "password": "1234567"
     },
     {
-      "id": "a285",
+      "id": "8831",
+      "email": "blabla@kiop.com",
+      "password": "223344"
+    },
+    {
+      "id": "b651",
       "email": "pmatoscosta6@gmail.com",
-      "password": "123456"
+      "password": "111111"
+    },
+    {
+      "id": "ff33",
+      "email": "adm",
+      "password": "123"
+    }
+  ],
+  "dadosPessoais": [
+    {
+      "id": "1",
+      "userId": "1",
+      "nome": "João",
+      "cpf": "12345678900",
+      "telefone": "(11) 91234-5678",
+      "dataNascimento": "01/01/2000",
+      "cep": "12345-678",
+      "rua": "Rua Exemplo",
+      "numero": "100",
+      "complemento": "Casa"
+    },
+    {
+      "id": "fd9e",
+      "userId": "e1a4",
+      "nome": "Pedro Henrique",
+      "cpf": "157.168.708-48",
+      "telefone": "(11) 1111111111",
+      "dataNascimento": "22/12/2002",
+      "cep": "04781-000",
+      "rua": "da",
+      "numero": "111",
+      "complemento": "222"
+    },
+    {
+      "userId": "8831",
+      "nome": "kipo",
+      "cpf": "22222222222222",
+      "telefone": "(11) 2111231232",
+      "dataNascimento": "22/11/2022",
+      "cep": "222222222",
+      "rua": "adasdsa",
+      "numero": "144",
+      "complemento": "",
+      "id": "2e4a"
+    }
+  ],
+  "produtos": [
+    {
+      "id": 1,
+      "titulo": "Camiseta Basic",
+      "preco": 119.90,
+      "imagem": "/assets/imagens/camiseta_preta.png",
+      "categoria": "Camiseta",
+      "descricao": ".."
+    },
+    {
+      "id": 2,
+      "titulo": "Moletom PurpleJack",
+      "preco": 139.90,
+      "imagem": "/assets/imagens/moletom_roxo.png",
+      "categoria": "Moletom",
+      "descricao": ".."
+    },
+    {
+      "id": 3,
+      "titulo": "Calça Vermelha",
+      "preco": 139.90,
+      "imagem": "/assets/imagens/calcacargo.png",
+      "categoria": "Calça",
+      "descricao": ".."
+    },
+    {
+      "id": 4,
+      "titulo": "Camiseta Swag",
+      "preco": 119.90,
+      "imagem": "/assets/imagens/marrom1.png",
+      "categoria": "Camiseta",
+      "descricao": ".."
+    },
+    {
+      "id": 5,
+      "titulo": "Moletom Off",
+      "preco": 129.90,
+      "imagem": "/assets/imagens/moletom_off.png",
+      "categoria": "Moletom",
+      "descricao": ".."
+    },
+    {
+      "id": 6,
+      "titulo": "Moletom Vermelho",
+      "preco": 149.90,
+      "imagem": "/assets/imagens/moletomV.png",
+      "categoria": "Moletom",
+      "descricao": ".."
     }
   ]
 }

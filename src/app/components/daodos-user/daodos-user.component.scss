@@ -5,12 +5,15 @@
   font-family: Arial, sans-serif;
 }
 
-body {
-  background-color: #000;
+
+#app-root {
+  background-image: url('/assets/imagens/Cieff.png');
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
 }
 
 .form-container {
@@ -27,6 +30,7 @@ body {
   color: #999;
   font-size: 36px;
   margin-bottom: 30px;
+  font-family: style, sans-serif;
 }
 
 .form-content {
@@ -41,6 +45,7 @@ body {
 .form-section-title {
   text-align: center;
   font-size: 22px;
+  font-family: style, sans-serif;
   margin-bottom: 30px;
   font-weight: bold;
 }
@@ -58,6 +63,7 @@ label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  font-family: style, sans-serif;
 }
 
 input {
@@ -67,6 +73,7 @@ input {
   border-bottom: 1px solid #000;
   outline: none;
   font-size: 16px;
+  font-family: style, sans-serif;
 }
 
 .phone-input, .date-input {
@@ -104,6 +111,7 @@ input {
   box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-family: style, sans-serif;
 }
 
 .btn-save:hover {
@@ -116,6 +124,7 @@ input {
   text-align: center;
   margin-top: 15px;
   font-weight: bold;
+  font-family: style, sans-serif;
 }
 
 .success {
@@ -131,6 +140,7 @@ input {
   color: #dc3545;
   font-size: 12px;
   margin-top: 5px;
+  font-family: style, sans-serif;
 }
 
 @keyframes fadeIn {
@@ -161,4 +171,57 @@ input {
   0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4); }
   70% { box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
   100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+}
+
+/* Adicionando estilos para o indicador de carregamento */
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-left-color: #007bff;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estilos para quando o usuário já tem dados cadastrados */
+.form-section.has-data label {
+  color: #007bff;
+}
+
+.input-group.filled input {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #007bff;
+}
+
+/* Estilos para o botão de atualizar */
+.btn-update {
+  background-color: #28a745;
+}
+
+.btn-update:hover {
+  background-color: #218838;
+}
+
+/* Estilo para formulário preenchido */
+.form-filled {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

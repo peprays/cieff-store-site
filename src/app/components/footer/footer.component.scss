@@ -1,3 +1,7 @@
+:host{
+  all: unset;
+}
+
 .logo{
     width: 140px;
     height: 140px;
@@ -16,14 +20,14 @@ footer {
     width: 100%;
     height: 140px;
     transition: all .3s;
-    
+
 }
 
 #footer_sup img {
     margin-left: 45%;
     margin-right: 45%;
-    
-    
+
+
 }
 
 #footer_sup img:hover {
@@ -42,21 +46,21 @@ footer {
     align-items: center;
     justify-content: space-evenly;
     transition: all .3s;
-    
+
 }
 
 .footer_centro a {
     font-family: style;
     text-decoration: none;
     color: #b9b9b9;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.438); 
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.438);
 }
 
 .icone_footer {
     width: 30px;
     height: 30px;
     filter: invert(100%);
-    
+
 }
 
 .icone_footer:hover, .footer_centro a:hover {
@@ -64,7 +68,7 @@ footer {
     transition: all .3s;
 }
 
-  
+
   button:hover {
     opacity: 1;
   }
