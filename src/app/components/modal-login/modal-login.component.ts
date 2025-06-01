@@ -51,7 +51,7 @@ export class ModalLoginComponent {
 
           // ✅ Verifica se o ID é "ff33" (admin)
           if (user.id === 'ff33') {
-            this.router.navigate(['/carrinho']); // Redireciona para dashboard
+            window.location.href = 'http://localhost:49469/'; // Redireciona para dashboard
           } else {
             this.router.navigate(['/']); // Redireciona para home
           }

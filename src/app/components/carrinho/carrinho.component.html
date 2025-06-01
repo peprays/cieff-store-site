@@ -91,8 +91,13 @@
             <span>R$ {{ valorFinal.toFixed(2).replace('.', ',') }}</span>
           </footer>
         </div>
-        <button (click)="finalizarCompra()" class="btn-finalizar">
-          Finalizar Compra
+        <button
+          (click)="finalizarCompra()"
+          class="btn-finalizar"
+          [disabled]="processandoCompra || itens.length === 0"
+          [class.processando]="processandoCompra">
+          <span *ngIf="!processandoCompra">Finalizar Compra</span>
+          <span *ngIf="processandoCompra">Processando...</span>
         </button>
       </aside>
     </div>

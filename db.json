@@ -66,52 +66,63 @@
   ],
   "produtos": [
     {
-      "id": 1,
+      "id": "1",
       "titulo": "Camiseta Basic",
-      "preco": 119.90,
+      "preco": 119.9,
       "imagem": "/assets/imagens/camiseta_preta.png",
       "categoria": "Camiseta",
       "descricao": ".."
     },
     {
-      "id": 2,
+      "id": "2",
       "titulo": "Moletom PurpleJack",
-      "preco": 139.90,
+      "preco": 139.9,
       "imagem": "/assets/imagens/moletom_roxo.png",
       "categoria": "Moletom",
       "descricao": ".."
     },
     {
-      "id": 3,
+      "id": "3",
       "titulo": "Calça Vermelha",
-      "preco": 139.90,
+      "preco": 139.9,
       "imagem": "/assets/imagens/calcacargo.png",
       "categoria": "Calça",
       "descricao": ".."
     },
     {
-      "id": 4,
+      "id": "4",
       "titulo": "Camiseta Swag",
-      "preco": 119.90,
+      "preco": 119.9,
       "imagem": "/assets/imagens/marrom1.png",
       "categoria": "Camiseta",
       "descricao": ".."
     },
     {
-      "id": 5,
+      "id": "5",
       "titulo": "Moletom Off",
-      "preco": 129.90,
+      "preco": 129.9,
       "imagem": "/assets/imagens/moletom_off.png",
       "categoria": "Moletom",
       "descricao": ".."
     },
     {
-      "id": 6,
+      "id": "6",
       "titulo": "Moletom Vermelho",
-      "preco": 149.90,
+      "preco": 149.9,
       "imagem": "/assets/imagens/moletomV.png",
       "categoria": "Moletom",
       "descricao": ".."
     }
-  ]
+  ],
+  "produtosEstoque": [
+    {
+      "id": "1",
+      "produto": "CamisetaBasic",
+      "categoria": "Camiseta",
+      "tamanho": "M",
+      "quantidade": 32,
+      "preco": 119.99
+    }
+  ],
+  "compras": []
 }
