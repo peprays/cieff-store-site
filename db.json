@@ -120,9 +120,31 @@
       "produto": "CamisetaBasic",
       "categoria": "Camiseta",
       "tamanho": "M",
-      "quantidade": 32,
+      "quantidade": 102,
       "preco": 119.99
     }
   ],
-  "compras": []
+  "compras": [
+    {
+      "id": "50e3",
+      "userId": "e1a4",
+      "nomeUsuario": "Pedro Henrique",
+      "dataCompra": "2025-06-01T17:35:36.269Z",
+      "itens": [
+        {
+          "produtoId": "2",
+          "nomeProduto": "Moletom PurpleJack",
+          "categoria": "Moletom",
+          "preco": 139.9,
+          "quantidade": 1,
+          "tamanho": "M",
+          "cor": "",
+          "total": 139.9
+        }
+      ],
+      "subtotal": 139.9,
+      "valorTotal": 139.9,
+      "status": "Confirmada"
+    }
+  ]
 }
