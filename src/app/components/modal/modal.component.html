@@ -1,42 +1,52 @@
+<!-- Fundo escuro do modal, cobre a tela. Ao clicar, fecha o modal -->
 <div class="modal-fade" [class.hide]="isClosing" (click)="close()"></div>
+
 <div>
-  <!-- Fundo escuro -->
+  <!-- Fundo escuro extra (pode ser redundante, mas reforça o overlay) -->
   <div class="modal-fade"></div>
 
-  <!-- Conteúdo do modal -->
+  <!-- Container principal do modal -->
   <div class="modal-container">
+    <!-- Cabeçalho do modal com título e botão de fechar -->
     <div class="modal-header">
-      <h2>{{ data?.titulo }}</h2>
-      <!-- Fechar só funciona se você injetar DialogRef (opcional) -->
+      <h2>{{ data?.titulo }}</h2> <!-- Título do produto vindo dos dados do modal -->
+      <!-- Botão para fechar o modal (X) -->
       <button class="close-modal" (click)="close()"><h1>X</h1></button>
     </div>
 
+    <!-- Corpo do modal -->
     <div class="modal-body">
+      <!-- Imagem do produto -->
       <img class="img_modal" [src]="data?.imagem" alt="Imagem do produto" />
+      <!-- Descrição do produto -->
       <p>{{ data?.descricao }}</p>
 
-      <!-- Seleção de Tamanho -->
+      <!-- Seção para seleção de tamanho -->
       <div class="selection-section">
         <h4>Tamanho:</h4>
         <div class="botoes_modal">
+          <!-- Botão para tamanho P. Fica selecionado se for o escolhido -->
           <button
             class="btn_modal"
             [class.selected]="tamanhoSelecionado === 'P'"
             (click)="selecionarTamanho('P')">
             P
           </button>
+          <!-- Botão para tamanho M -->
           <button
             class="btn_modal"
             [class.selected]="tamanhoSelecionado === 'M'"
             (click)="selecionarTamanho('M')">
             M
           </button>
+          <!-- Botão para tamanho G -->
           <button
             class="btn_modal"
             [class.selected]="tamanhoSelecionado === 'G'"
             (click)="selecionarTamanho('G')">
             G
           </button>
+          <!-- Botão para tamanho GG -->
           <button
             class="btn_modal"
             [class.selected]="tamanhoSelecionado === 'GG'"
@@ -46,15 +56,17 @@
         </div>
       </div>
 
+      <!-- Link para tabela de tamanhos, abre em nova aba -->
       <a class="tamanhos" [href]="data?.tabela" target="_blank">Tabela de tamanhos</a>
 
-      <!-- Informações Selecionadas -->
+      <!-- Exibe as opções selecionadas pelo usuário (tamanho e cor) -->
       <div class="selecoes-info" *ngIf="tamanhoSelecionado || corSelecionada">
         <p><strong>Selecionado:</strong></p>
         <p *ngIf="tamanhoSelecionado">Tamanho: {{ tamanhoSelecionado }}</p>
         <p *ngIf="corSelecionada">Cor: {{ corSelecionada }}</p>
       </div>
 
+      <!-- Botão para adicionar o produto ao carrinho -->
       <div class="button_modal">
         <button (click)="adicionarAoCarrinho()" class="btn-adicionar-carrinho">
           Adicionar ao carrinho

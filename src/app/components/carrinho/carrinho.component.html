@@ -1,22 +1,26 @@
 <header>
+  <!-- Botão para voltar para a página inicial -->
   <a id="voltar" routerLink="/home">
     <i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i>
   </a>
+  <!-- Logo da loja, clicável para ir para a home -->
   <a routerLink="/">
     <img class="logo" src="/assets/imagens/logo_png.png" alt="">
   </a>
   <span></span>
 </header>
+
 <main>
+  <!-- Título da página do carrinho -->
   <div class="page-title">Seu Carrinho</div>
   <div class="content">
-    <!-- Mensagem quando carrinho está vazio -->
+    <!-- Mensagem exibida quando o carrinho está vazio -->
     <div *ngIf="itens.length === 0" class="carrinho-vazio">
       <h3>Seu carrinho está vazio</h3>
       <p>Adicione produtos ao seu carrinho para vê-los aqui.</p>
     </div>
 
-    <!-- Conteúdo quando há itens no carrinho -->
+    <!-- Conteúdo exibido quando há itens no carrinho -->
     <div *ngIf="itens.length > 0">
       <section>
         <table>
@@ -30,34 +34,44 @@
           </tr>
           </thead>
           <tbody>
+          <!-- Lista de itens do carrinho -->
           <tr *ngFor="let item of itens; trackBy: trackByItem">
             <td>
               <div class="product">
+                <!-- Imagem do produto -->
                 <img class="produto" [src]="item.imagem" [alt]="item.nome" />
                 <div class="info">
-                  <div class="name">{{ item.nome }}</div>
-                  <div class="category">{{ item.categoria }}</div>
+                  <div class="name">{{ item.nome }}</div> <!-- Nome do produto -->
+                  <div class="category">{{ item.categoria }}</div> <!-- Categoria do produto -->
                   <div class="details">
+                    <!-- Exibe tamanho se houver -->
                     <span *ngIf="item.tamanho">Tamanho: {{ item.tamanho }}</span>
+                    <!-- Exibe cor se houver, separado por "|" -->
                     <span *ngIf="item.cor"> | Cor: {{ item.cor }}</span>
                   </div>
                 </div>
               </div>
             </td>
+            <!-- Preço unitário do produto -->
             <td>R$ {{ item.preco.toFixed(2).replace('.', ',') }}</td>
             <td>
               <div class="qty">
+                <!-- Botão para diminuir quantidade -->
                 <button (click)="diminuirQuantidade(item)">
                   <i class="bx bx-minus">-</i>
                 </button>
+                <!-- Quantidade atual -->
                 <span>{{ item.quantidade }}</span>
+                <!-- Botão para aumentar quantidade -->
                 <button (click)="aumentarQuantidade(item)">
                   <i class="bx bx-plus">+</i>
                 </button>
               </div>
             </td>
+            <!-- Total do item (preço x quantidade) -->
             <td>R$ {{ (item.preco * item.quantidade).toFixed(2).replace('.', ',') }}</td>
             <td>
+              <!-- Botão para remover item do carrinho -->
               <button class="remove" (click)="removerItem(item)">
                 <i class="bx bx-x"><img src="/assets/imagens/lixeira.png" alt=""></i>
               </button>
@@ -72,14 +86,17 @@
           <header>Resumo da compra</header>
           <div class="info">
             <div>
+              <!-- Sub-total dos produtos -->
               <span>Sub-total</span>
               <span>R$ {{ subTotal.toFixed(2).replace('.', ',') }}</span>
             </div>
             <div>
+              <!-- Frete sempre gratuito -->
               <span>Frete</span>
               <span>Gratuito</span>
             </div>
             <div>
+              <!-- Botão para adicionar cupom de desconto (não funcional) -->
               <button>
                 Adicionar cupom de desconto
                 <i class="bx bx-right-arrow-alt"></i>
@@ -87,15 +104,18 @@
             </div>
           </div>
           <footer>
+            <!-- Valor total da compra -->
             <span>Total</span>
             <span>R$ {{ valorFinal.toFixed(2).replace('.', ',') }}</span>
           </footer>
         </div>
+        <!-- Botão para finalizar a compra -->
         <button
           (click)="finalizarCompra()"
           class="btn-finalizar"
           [disabled]="processandoCompra || itens.length === 0"
           [class.processando]="processandoCompra">
+          <!-- Texto muda conforme está processando ou não -->
           <span *ngIf="!processandoCompra">Finalizar Compra</span>
           <span *ngIf="processandoCompra">Processando...</span>
         </button>
@@ -104,6 +124,7 @@
   </div>
 </main>
 
+<!-- Plugin de acessibilidade VLibras -->
 <div vw class="enabled">
   <div vw-access-button class="active"></div>
   <div vw-plugin-wrapper>
